@@ -64,7 +64,7 @@ func (ph *PhoneHandler) UpdatePhone(c echo.Context) error {
         return err
     }
 
-    // handle case if one of phone property is not proper inserted
+    // handle case if one of phone property is not proper inserted in request body
     if phone.Brand == ""{
         phone.Brand = foundPhone.Brand
     }
