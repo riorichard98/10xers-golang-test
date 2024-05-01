@@ -75,7 +75,7 @@ Basic authentication is employed to protect all API endpoints. Clients must prov
 ```json
 [
     {
-        "id": "8122bd86-a6b1-4b53-bbb4-efde4fc26bdf",
+        "phoneId": "8122bd86-a6b1-4b53-bbb4-efde4fc26bdf",
         "ID": 0,
         "CreatedAt": "2024-05-01T12:05:46.668292476+07:00",
         "UpdatedAt": "2024-05-01T12:05:46.668292476+07:00",
