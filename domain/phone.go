@@ -8,7 +8,7 @@ import (
 type (
 	// entity of phone
 	Phone struct {
-		ID uuid.UUID `json:"id" db:"id" gorm:"type:uuid;primaryKey"`
+		ID uuid.UUID `json:"phoneId" db:"id" gorm:"type:uuid;primaryKey"`
 		gorm.Model
 		Name          string  `json:"name" db:"name"`
 		Brand         string  `json:"brand" db:"brand"`
