@@ -31,11 +31,13 @@ func NewPhoneHandler(phoneDomain domain.PhoneInterface)*PhoneHandler{
 func (ph *PhoneHandler) CreatePhone(c echo.Context) error {
     var phone domain.Phone
     if err := c.Bind(&phone); err != nil {
-        return err
+        fmt.Println(err.Error())
+        return c.JSON(400,"invalid request body")
     }
 	phone.ID = uuid.New()
     if err := ph.Phone.CreatePhone(&phone) ; err != nil{
-        return err
+        fmt.Println(err.Error())
+        return c.JSON(400,"invalid request body")
     }
     return c.JSON(200,"success creating new phone")
 }
