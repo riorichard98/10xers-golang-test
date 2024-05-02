@@ -1,8 +1,10 @@
 package handler
 
-import(
-	"github.com/labstack/echo/v4"
+import (
+	"fmt"
+
 	"github.com/google/uuid"
+	"github.com/labstack/echo/v4"
 
 	"10xers/domain"
 )
@@ -51,7 +53,8 @@ func (ph *PhoneHandler) UpdatePhone(c echo.Context) error {
     id := c.Param("id")
     uuid,err := uuid.Parse(id)
 	if err != nil {
-		return err
+        fmt.Println(err.Error())
+        return echo.NewHTTPError(404, "Phone not found")
 	}
     // Check if the phone exists
     foundPhone, err := ph.Phone.GetPhoneByID(uuid)
@@ -89,7 +92,8 @@ func (ph *PhoneHandler) DeletePhoneByID(c echo.Context) error {
     id := c.Param("id")
 	uuid,err := uuid.Parse(id)
 	if err != nil {
-		return err
+        fmt.Println(err.Error())
+        return echo.NewHTTPError(404, "Phone not found")
 	}
     // Check if the phone exists
     _, err = ph.Phone.GetPhoneByID(uuid)
